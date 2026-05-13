@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG Knowledge</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="knowledge-panel">
+        <div class="panel-header">
+          <div>
+            <h1>RAG Knowledge</h1>
+            <p id="healthText">检查服务状态中...</p>
+          </div>
+          <span id="llmBadge" class="badge">LLM</span>
+        </div>
+
+        <form id="documentForm" class="document-form">
+          <label>
+            标题
+            <input id="docTitle" name="title" placeholder="例如：产品手册" autocomplete="off" />
+          </label>
+          <label>
+            文档内容
+            <textarea id="docContent" name="content" placeholder="粘贴知识库文本、FAQ、规范或说明文档"></textarea>
+          </label>
+          <button type="submit">添加到知识库</button>
+        </form>
+
+        <section class="kb-section">
+          <div class="section-title">
+            <h2>知识库</h2>
+            <span id="kbStats">0 文档 / 0 分片</span>
+          </div>
+          <div id="documentList" class="document-list"></div>
+        </section>
+      </aside>
+
+      <section class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <h2>流式问答</h2>
+            <p>基于本地向量检索上下文回答，支持 OpenAI-compatible function calling。</p>
+          </div>
+          <label class="toggle-row">
+            <input id="useTools" type="checkbox" checked />
+            <span>Function calling</span>
+          </label>
+        </header>
+
+        <div id="contextBar" class="context-bar">等待提问后显示检索片段</div>
+        <div id="messages" class="messages"></div>
+
+        <form id="chatForm" class="chat-form">
+          <textarea id="chatInput" placeholder="输入问题，例如：这个知识库系统如何工作？"></textarea>
+          <button type="submit">发送</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
