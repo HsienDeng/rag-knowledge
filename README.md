@@ -1,6 +1,6 @@
 # RAG Knowledge
 
-![alt text](image.png)
+![alt text](./images/image-1.png)
 
 一个零依赖 Node.js RAG（检索增强生成）向量知识库，包含完整的文档管理、本地向量检索和流式问答功能。纯原生 Node.js 实现，无需任何第三方 npm 包。
 
